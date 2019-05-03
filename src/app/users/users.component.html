@@ -1,0 +1,25 @@
+<button (click)="getAllUserData()" class="btn btn-primary">Get users </button>
+<button (click)="getUserByid()" class="btn btn-primary">Users with ID 4 </button>
+<div class="container">
+  <h2 *ngIf="showUserData">Users Table</h2>
+  <h2 *ngIf="!showUserData">Filtered User Data</h2>
+  {{isLoading$}}<mat-spinner *ngIf="isLoading$ | async"></mat-spinner>
+  <table class="table table-bordered">
+    <thead>
+      <tr>
+        <th>User ID</th>
+        <th>ID</th>
+        <th>Title</th>
+        <th>Body</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr *ngFor="let user of usersData$">
+        <td>{{user.userId}}</td>
+        <td>{{user.id}}</td>
+        <td>{{user.title}}</td>
+        <td>{{user.body}}</td>
+      </tr>
+    </tbody>
+  </table>
+</div>
